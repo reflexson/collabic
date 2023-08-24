@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVC Tech Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <body class="bg-success-subtle text-emphasis-success">
+    <div class="container-fluid">
+        <div class="row">
+            <nav class=" navbar navbar-expand navbar-dark bg-dark">
+                 <div class="container mt-3 ms-4">
+                     <div class="d-flex flex-column flex-wrap " id="navbarCollapse">
+                
+                            <ul class="navbar-nav mb-auto mt-0 ml-auto grid gap-3 fs-1">
+                                <li class="nav-item active">
+                                    <a class="nav-link py-0" aria-current="page" href="/">Home</a>
+                               </li>
+                             <li class="nav-item active">
+                                  <a class="nav-link py-0" href="/dashboard">Dashboard</a>
+                             </li>
+                              <li class="nav-item">
+                                    <a class="nav-link py-0" href="#">Login</a>
+                             </li>
+                              <li class="nav-item">
+                                  <a class="nav-link py-0" href="/login">Logout</a>
+                             </li>
+                             <li class="nav-item">
+                              <a class="nav-link py-0" href="/signUp">Sign Up</a>
+                            </li>
+                             </ul>
+                         <button type="button" class="btn btn-success bg-success-subtle mt-4 fs-1  text-black" href="/">The Tech Blog</button>
+                     </div>
+                 </div>
+            </nav>
+        </div>
+   
+        <div class="row  mt-3 ms-4">
+            <div class="card bg-success-subtle border border-black col-11 p-0">
+                <div class=" card-header bg-black text-white ">
+                  Featured
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <audio controls class= "col-8"src="https://www.dropbox.com/scl/fi/tak8agoaydrixfhf6cwdt/02-Gamblin.wav?rlkey=4zk7yv4iaicogpice7ns0dkje&raw=1">dfgdfg</audio> 
+                  
+                  
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                </div>
+              </div>
+        </div>
+        <form class="new-comment-form formCont d-flex flex-wrap justify-content-center" data-blogid={{id}}>
+          <div class="textAreaCont p-2">
+            <textarea id='comment_description' name="comment-body"
+            placeholder="Enter a comment here..."
+            cols="30"
+            rows="2"></textarea>
+          </div>
+          <div class="btnComment p-2">
+            <button class="button btn btn-success" type="submit">Add Comment</button>
+          </div>
+        </form>
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  </body>
+</html>
