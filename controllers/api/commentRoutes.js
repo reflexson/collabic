@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { comment, song } = require('../models'); // Import your Sequelize models
+const { comment, song } = require('../models');
 
 // creates a new comment for a song
 router.post('/songs/:songId/comments', async (req, res) => {
