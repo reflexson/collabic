@@ -3,40 +3,80 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MVC Tech Blog</title>
+    <title>Collabic</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
-  <body class="bg-success-subtle text-emphasis-success">
-    <div class="container-fluid">
-        <div class="row">
-            <nav class=" navbar navbar-expand navbar-dark bg-dark">
-                 <div class="container mt-3 ms-4">
-                     <div class="d-flex flex-column flex-wrap " id="navbarCollapse">
-                
-                            <ul class="navbar-nav mb-auto mt-0 ml-auto grid gap-3 fs-1">
-                                <li class="nav-item active">
-                                    <a class="nav-link py-0" aria-current="page" href="/">Home</a>
-                               </li>
-                             <li class="nav-item active">
-                                  <a class="nav-link py-0" href="/dashboard">Dashboard</a>
-                             </li>
-                              <li class="nav-item">
-                                    <a class="nav-link py-0" href="#">Login</a>
-                             </li>
-                              <li class="nav-item">
-                                  <a class="nav-link py-0" href="/login">Logout</a>
-                             </li>
-                             <li class="nav-item">
-                              <a class="nav-link py-0" href="/signUp">Sign Up</a>
-                            </li>
-                             </ul>
-                         <button type="button" class="btn btn-success bg-success-subtle mt-4 fs-1  text-black" href="/">The Tech Blog</button>
-                     </div>
-                 </div>
-            </nav>
+  <body class="bg-secondary-subtle text-emphasis-success">
+    <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+        <div class="container-fluid ">
+          <a class="navbar-brand fs-1 text-white" href="#">
+            <img src="../imgs/Vinyl Icon.png" width="50" height="50" alt="">   Collabic
+          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav me-4 fs-2">
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Login</a>
+          </li>		
+          <li class="nav-item">
+            <a class="nav-link text-white" href="#">Logout</a>
+          </li>			
+          </ul>		  
         </div>
-
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-          </body>
+        </div>
+      </nav>
+   
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+                <div class="card bg-dark text-white mb-5 rounded" style="border-radius: 1rem;">
+                  <div class="card-body text-center shadow-lg">
+        
+                    <div class="mb-md-5 mt-md-4 pb-5 ">
+        
+                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX">User Name</label>
+                      </div>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX">Password</label>
+                      </div>
+        
+                   
+        
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+        
+                      <div class="d-flex justify-content-center text-center mt-4 pt-1">
+                        <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2"></i></a>
+                        <a href="#!" class="text-white"><i class="fab fa-google fa-lg"></i></a>
+                      </div>
+        
+                    </div>
+        
+                    <div>
+                      <p class="mb-0">Don't have an account? <a href="#!" class="text-white-50 fw-bold">Sign Up</a>
+                      </p>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+​
+​
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+  </body>
 </html>
