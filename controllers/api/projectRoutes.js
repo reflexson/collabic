@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { Comment, Song } = require('../../models'); // Import your models
+const { Comment, Song } = require('../../models'); 
 
-// Create a new comment for a song with a timestamp
+// create a new comment for a song with a timestamp
 router.post('/songs/:songId/comments', async (req, res) => {
   try {
     const { songId } = req.params;
     const { userId, text, timestamp } = req.body; // Add timestamp in request body
 
-// Fetch the song by its ID
+// fetch the song by its ID
     const song = await Song.findByPk(songId);
 
     if (!song) {
@@ -51,7 +51,7 @@ router.get('/songs/:songId/comments', async (req, res) => {
   }
 });
 
-// Delete a comment by ID
+// delete a comment by ID
 router.delete('/comments/:commentId', async (req, res) => {
   try {
     const { commentId } = req.params;
