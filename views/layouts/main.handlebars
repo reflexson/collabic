@@ -10,7 +10,7 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
         <div class="container-fluid ">
           <a class="navbar-brand fs-1 text-white" href="#">
-            <img src="../imgs/Vinyl Icon.png" width="50" height="50" alt="">   Collabic
+            <img src="../../imgs/Vinyl Icon.png" width="50" height="50" alt="">   Collabic
           </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -24,132 +24,23 @@
           <li class="nav-item">
             <a class="nav-link text-white" href="/login" id="logout">Logout</a>
           </li>		
-          {{else}}
-          <li class="nav-item">
-            <a class="nav-link text-white" href="/login" id="login">Login</a>
-          </li>		
           {{/if}}
           </ul>		  
         </div>
         </div>
       </nav>
       {{#if logged_in}}
-      <ul class="nav flex-column list-group list-group-light">
-        <form>
-          <div class="form-row align-items-center">
-            <div class="col-auto">
-              <label class="sr-only" for="inlineFormInput">Project Name</label>
-              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
-            </div>
-            <div class="col-auto">
-              <label class="sr-only" for="inlineFormInputGroup">Project Description</label>
-              <div class="input-group mb-2">
-                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Project description">
-              </div>
-            </div>
-            </div>
-            <div class="col-auto my-1">
-              <button type="create" class="btn btn-primary mb-2">Create New Project</button>
-            </div>
-          </div>
-        </form>
-          <li class="nav-item ">
-            <!-- Project 1-->
-            <div class="row ">
-              <div class="col s12 m6">
-                <div class="card blue-grey text-center mt-3">
-                  <div class="card-header white-text fs-1">
-                    <!-- put name of project on this card-title class -->
-                    <a href="#">Project Title 1 (link to project page)</a>
-                    </div>
-                    <div class="card-body">
-                    <p>Total # of songs and total # of comments</p>
-                  </div>
-                  <div class="card-action">
-                  </div>
-                </div>
-              </div>
-            </div>     
-          </li>
-          
-      <!-- Project 2 -->
-        <li class="nav-item ">
-          <!-- Project 1-->
-          <div class="row ">
-            <div class="col s12 m6">
-              <div class="card blue-grey darken-1 text-center mt-3">
-                <div class="card-header white-text fs-1 ">
-                  <!-- put name of project on this card-title class -->
-                  <a href="#">Project Title 2 (link to project page)</a>
-                  </div>
-                  <div class="card-body">
-                  <p>Total # of songs and total # of comments</p>
-                </div>
-                <div class="card-action">
-                </div>
-              </div>
-            </div>
-          </div>     
-        </li>
-      
-        <li class="nav-item ">
-          <div class="row ">
-            <div class="col s12 m6">
-              <div class="card blue-grey darken-1 text-center mt-3">
-                <div class="card-header white-text fs-1 ">
-                  <a href="#">Project Title 3 (link to project page)</a>
-                  </div>
-                  <div class="card-body">
-                  <p>Total # of songs and total # of comments</p>
-                </div>
-                <div class="card-action">
-                </div>
-              </div>
-            </div>
-          </div>     
-        </li>
-        </ul>
+           <script>document.location.replace('/allprojects');</script>
         {{else}}
-        <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-              <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
-                <div class="card bg-dark text-white mb-5 rounded" style="border-radius: 1rem;">
-                  <div class="card-body text-center shadow-lg">
-        
-                    <div class="mb-md-5 mt-md-4 pb-5 ">
-        
-                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
-        
-                      <div class="form-outline form-white mb-4">
-                        <input type="email" id="userNameLogin" class="form-control form-control-lg" />
-                        <label class="form-label" for="typeEmailX">User Name</label>
-                      </div>
-        
-                      <div class="form-outline form-white mb-4">
-                        <input type="password" id="passwordLogin" class="form-control form-control-lg" />
-                        <label class="form-label" for="typePasswordX">Password</label>
-                      </div>
-        
-                   
-        
-                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-        
-                    </div>
-        
-                    <div>
-                      <p class="mb-0">Don't have an account? <a href="/signUp" class="text-white-50 fw-bold">Sign Up</a>
-                      </p>
-                    </div>
-        
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+    <script>document.location.replace('/login');</script>
           {{/if}}
-<script src="./js/login.js"></script>
+    <main class="container">
+        {{{body}}}
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+   {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
   </body>
 </html>
