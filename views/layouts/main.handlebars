@@ -3,56 +3,153 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MVC Tech Blog</title>
+    <title>Collabic</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
-  <body class="bg-success-subtle text-emphasis-success">
-    <div class="container-fluid">
-        <div class="row">
-            <nav class=" navbar navbar-expand-sm navbar-dark bg-dark col-12">
-                 <div class="container mt-3 ms-3">
-                     <div class="d-flex flex-column flex-wrap " id="navbarCollapse">
-                
-                            <ul class="navbar-nav mb-auto mt-0 ml-auto grid gap-3 fs-3">
-                                <li class="nav-item active">
-                                    <a class="nav-link py-0" aria-current="page" href="/">Home</a>
-                               </li>
-                               {{#if logged_in}}
-                             <li class="nav-item">
-                                  <a class="nav-link py-0" href="/dashboard">Dashboard</a>
-                             </li>
-                             <li class="nav-item">
-                                  <a class="nav-link py-0" href="/login" id="logout">Logout</a>
-                             </li>
-                             {{else}}
-                              <li class="nav-item">
-                                    <a class="nav-link py-0" href="/login" id="login">Login</a>
-                             </li>
-                              
-                             <li class="nav-item">
-                              <a class="nav-link py-0" href="/signUp">Sign Up</a>
-                            </li>
-                            {{/if}}
-                             </ul>
-                         <button type="button" class="btn btn-success bg-success-subtle mt-3 fs-1  text-black " disabled aria-label="Close" href="/">The Tech Blog</button>
-                     </div>
-                 </div>
-            </nav>
+  <body class="bg-secondary-subtle text-emphasis-success">
+    <nav class="navbar navbar-expand-sm navbar-light bg-secondary">
+        <div class="container-fluid ">
+          <a class="navbar-brand fs-1 text-white" href="#">
+            <img src="../../imgs/Vinyl Icon.png" width="50" height="50" alt="">   Collabic
+          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav me-4 fs-2">
+            {{#if logged_in}}
+          <li class="nav-item">
+            <a class="nav-link active text-white" aria-current="page" href="#">Projects</a>
+          </li>	
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/login" id="logout">Logout</a>
+          </li>		
+          {{else}}
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/login" id="login">Login</a>
+          </li>		
+          {{/if}}
+          </ul>		  
         </div>
-   
-      <main class="container">
-        {{{body}}}
-      </main>
-      <footer>
-      </footer>
-    </div>
-
-
+        </div>
+      </nav>
+      {{#if logged_in}}
+      <ul class="nav flex-column list-group list-group-light">
+        <form>
+          <div class="form-row align-items-center">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">Project Name</label>
+              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="Jane Doe">
+            </div>
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInputGroup">Project Description</label>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Project description">
+              </div>
+            </div>
+            </div>
+            <div class="col-auto my-1">
+              <button type="create" class="btn btn-primary mb-2">Create New Project</button>
+            </div>
+          </div>
+        </form>
+          <li class="nav-item ">
+            <!-- Project 1-->
+            <div class="row ">
+              <div class="col s12 m6">
+                <div class="card blue-grey text-center mt-3">
+                  <div class="card-header white-text fs-1">
+                    <!-- put name of project on this card-title class -->
+                    <a href="#">Project Title 1 (link to project page)</a>
+                    </div>
+                    <div class="card-body">
+                    <p>Total # of songs and total # of comments</p>
+                  </div>
+                  <div class="card-action">
+                  </div>
+                </div>
+              </div>
+            </div>     
+          </li>
+          
+      <!-- Project 2 -->
+        <li class="nav-item ">
+          <!-- Project 1-->
+          <div class="row ">
+            <div class="col s12 m6">
+              <div class="card blue-grey darken-1 text-center mt-3">
+                <div class="card-header white-text fs-1 ">
+                  <!-- put name of project on this card-title class -->
+                  <a href="#">Project Title 2 (link to project page)</a>
+                  </div>
+                  <div class="card-body">
+                  <p>Total # of songs and total # of comments</p>
+                </div>
+                <div class="card-action">
+                </div>
+              </div>
+            </div>
+          </div>     
+        </li>
+      
+        <li class="nav-item ">
+          <div class="row ">
+            <div class="col s12 m6">
+              <div class="card blue-grey darken-1 text-center mt-3">
+                <div class="card-header white-text fs-1 ">
+                  <a href="#">Project Title 3 (link to project page)</a>
+                  </div>
+                  <div class="card-body">
+                  <p>Total # of songs and total # of comments</p>
+                </div>
+                <div class="card-action">
+                </div>
+              </div>
+            </div>
+          </div>     
+        </li>
+        </ul>
+        {{else}}
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+                <div class="card bg-dark text-white mb-5 rounded" style="border-radius: 1rem;">
+                  <div class="card-body text-center shadow-lg">
+        
+                    <div class="mb-md-5 mt-md-4 pb-5 ">
+        
+                      <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                      <p class="text-white-50 mb-5">Please enter your login and password!</p>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="email" id="userNameLogin" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX">User Name</label>
+                      </div>
+        
+                      <div class="form-outline form-white mb-4">
+                        <input type="password" id="passwordLogin" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX">Password</label>
+                      </div>
+        
+                   
+        
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+        
+                    </div>
+        
+                    <div>
+                      <p class="mb-0">Don't have an account? <a href="/signUp" class="text-white-50 fw-bold">Sign Up</a>
+                      </p>
+                    </div>
+        
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {{/if}}
+<script src="./js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
-
-   {{#if logged_in}}
-      <script src="/js/logout.js"></script>
-    {{/if}}
   </body>
 </html>
