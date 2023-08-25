@@ -18,7 +18,7 @@ router.post('/songs/:songId/comments', async (req, res) => {
 // create a new comment with timestamp and user ID
     const comment = await Comment.create({
       text,
-      timestamp: new Date(), // use the current timestamp
+      timestamp: new Date(), // use the current timestamp for a comment
       userId,
       songId,
     });
