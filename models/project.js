@@ -10,7 +10,10 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    projectName: {
+    project_name: {
+      type: DataTypes.STRING,
+    },
+    project_description:{
       type: DataTypes.STRING,
     },
     user_id: {

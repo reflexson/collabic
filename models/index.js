@@ -7,9 +7,9 @@ User.hasMany(Project, {
   foreignKey: 'user_id',
 });
 
-Project.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Project.belongsTo(User, {
+//   foreignKey: 'user_id'
+// });
 
 Project.hasMany(Song,{
   foreignKey: 'project_id',

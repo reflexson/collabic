@@ -1,47 +1,50 @@
-const newFormHandler = async (event) => {
+const newProjectHandler = async (event) => {
 	event.preventDefault();
 
-	const title = document.querySelector('#blogTitle').value.trim();
+	const project_name = document.querySelector('#projectName').value.trim();
 
-	const description = document.querySelector('#blogDesc').value.trim();
-
-	if (title && description) {
-		const response = await fetch(`/api/blogs`, {
+	const project_description = document.querySelector('#projectDescription').value.trim();
+	console.log(project_description);
+	if (project_name && project_description) {
+		
+		const response = await fetch('/api/projects', {
 			method: 'POST',
-			body: JSON.stringify({ title, description }),
+			body: JSON.stringify({
+				project_name, 
+				project_description}),
 			headers: {
 				'Content-Type': 'application/json',
 			},
 		});
 
 		if (response.ok) {
-			document.location.replace('/dashboard');
+			document.location.replace('/allprojects');
 		} else {
-			alert('Failed to create blog');
+			alert('Failed to create project');
 		}
 	}
 };
 
-const delButtonHandler = async (event) => {
-	if (event.target.hasAttribute('data-id')) {
-		const id = event.target.getAttribute('data-id');
+// const delButtonHandler = async (event) => {
+// 	if (event.target.hasAttribute('data-id')) {
+// 		const id = event.target.getAttribute('data-id');
 
-		const response = await fetch(`/api/blogs/${id}`, {
-			method: 'DELETE',
-		});
+// 		const response = await fetch(`/api/blogs/${id}`, {
+// 			method: 'DELETE',
+// 		});
 
-		if (response.ok) {
-			document.location.replace('/dashboard');
-		} else {
-			alert('Failed to delete blog');
-		}
-	}
-};
-
-document
-	.querySelector('.newBlogForm')
-	.addEventListener('submit', newFormHandler);
+// 		if (response.ok) {
+// 			document.location.replace('/dashboard');
+// 		} else {
+// 			alert('Failed to delete blog');
+// 		}
+// 	}
+// };
 
 document
-	.querySelector('.blogList')
-	.addEventListener('click', delButtonHandler);
+	.querySelector('.newProjectForm')
+	.addEventListener('submit', newProjectHandler);
+
+// document
+// 	.querySelector('.projectList')
+// 	.addEventListener('click', delButtonHandler);

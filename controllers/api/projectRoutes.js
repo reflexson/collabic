@@ -1,73 +1,47 @@
-const express = require('express');
-const router = express.Router();
-const { Comment, Song } = require('../../models'); 
+const router = require('express').Router();
+const { Project } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-// create a new comment for a song with a timestamp
-router.post('/songs/:songId/comments', async (req, res) => {
+
+router.get('/', (req,res) => {
+  Project.findAll({})
+  .then(ProjectData => res.json(ProjectData))
+  .catch(err => {
+      console.log(err);
+      res.status(500).json(err)
+  });
+});
+
+router.post('/', withAuth, async (req, res) => {
   try {
-    const { songId } = req.params;
-    const { userId, text, timestamp } = req.body; // Add timestamp in request body
-
-// fetch the song by its ID
-    const song = await Song.findByPk(songId);
-
-    if (!song) {
-      return res.status(404).json({ error: 'Song not found' });
-    }
-
-// create a new comment with timestamp and user ID
-    const comment = await Comment.create({
-      text,
-      timestamp,
-      userId,
-      songId,
+    const newProject = await Project.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
 
-    return res.status(201).json(comment);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Server error' });
+    res.status(200).json(newProject);
+  } catch (err) {
+    res.status(400).json(err);
   }
 });
 
-// get comments for a specific song
-router.get('/songs/:songId/comments', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
-    const { songId } = req.params;
-
-// fetch the song by its ID along with associated comments
-    const song = await Song.findByPk(songId, {
-      include: Comment,
+    const projectData = await Project.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
     });
 
-    if (!song) {
-      return res.status(404).json({ error: 'Song not found' });
+    if (!projectData) {
+      res.status(404).json({ message: '404 Project ID not found' });
+      return;
     }
 
-    return res.status(200).json(song.comments);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Server error' });
-  }
-});
-
-// delete a comment by ID
-router.delete('/comments/:commentId', async (req, res) => {
-  try {
-    const { commentId } = req.params;
-
-    const comment = await Comment.findByPk(commentId);
-
-    if (!comment) {
-      return res.status(404).json({ error: 'Comment not found' });
-    }
-
-    await comment.destroy();
-
-    return res.status(204).json({ message: 'Comment deleted' });
-  } catch (error) {
-    console.error(error);
-    return res.status(500).json({ error: 'Server error' });
+    res.status(200).json(projectData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

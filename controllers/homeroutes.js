@@ -2,6 +2,8 @@ const router = require('express').Router();
 const { User, Song, Comment, Project } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+//default page
 router.get('/', async (req, res) => {
   // try {
   //   const songData = await Song.findAll({
@@ -24,30 +26,57 @@ router.get('/', async (req, res) => {
   // }
 });
 
+//allprojects page
+
 router.get('/allprojects', withAuth, async (req, res) => {
-  // try {
-  //   const userData = await User.findByPk(req.session.user_id, {
-  //     attributes: {
-  //       exclude: ['password'],
-  //     },
-  //     include: [
-  //       {
-  //         model: Project,
-  //         include: [Comment], 
-  //       },
-  //     ],
-  //   });
+	try {
+		const projectData = await Project.findAll({
+		});
 
-  //   const user = userData.get({ plain: true });
+		const projects = projectData.map((project) => project.get({
+			plain: true
+		}));
 
-    res.render('allprojects', {
-      // ...user,
-      logged_in: req.session.logged_in,
-    });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
+		res.render('allprojects', {
+			projects,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
+
+
+//single project page
+
+router.get('/project/:id', async (req, res) => {
+	try {
+		const projectData = await Project.findByPk(req.params.id, {
+			include: [
+				{
+					model: Song,
+					attributes: ['song_name'],
+				}, {
+					model: Comment,
+				}
+			],
+		});
+
+		const project = projectData.get({
+			plain: true
+		});
+
+		res.render('project', {
+			...project,
+			logged_in: req.session.logged_in
+		});
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+
+//login page
 
 router.get('/login', (req, res) => {
   if (req.session.logged_in) {
@@ -57,6 +86,8 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+//signUp page
 
 router.get('/signUp', (req, res) => {
   if (req.session.logged_in) {
