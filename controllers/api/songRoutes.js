@@ -7,7 +7,6 @@ router.post('/', withAuth, async (req, res) => {
   try {
     const newSong = await Song.create({
       ...req.body,
-      user_id: req.session.user_id,
     });
 
     res.status(200).json(newSong);

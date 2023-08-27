@@ -53,21 +53,23 @@ router.get('/project/:id', async (req, res) => {
 	try {
 		const projectData = await Project.findByPk(req.params.id, {
 			include: [
-				{
-					model: Song,
-					attributes: ['song_name'],
-				}, {
-					model: Comment,
-				}
 			],
 		});
 
 		const project = projectData.get({
 			plain: true
 		});
+		const songData = await Song.findAll({
+			where: { project_id: req.params.id } 
+		});
+
+		const songs = songData.map((song) => song.get({
+			plain: true
+		}));
 
 		res.render('project', {
-			...project,
+			project,
+			songs,
 			logged_in: req.session.logged_in
 		});
 	} catch (err) {
