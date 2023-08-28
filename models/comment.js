@@ -13,22 +13,19 @@ Comment.init(
     comment_description: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
+    comment_songTimestamp: {
+      type: DataTypes.INTEGER,
     },
-    blog_id: {
+    comment_publishedTimestamp: {
+      type: DataTypes.INTEGER,
+    },
+    comment_owner: {
+      type: DataTypes.STRING,
+    },
+    song_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'blog',
-        key: 'id',
-      },
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
+        model: 'song',
         key: 'id',
       },
     },
