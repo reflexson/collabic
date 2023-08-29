@@ -40,11 +40,11 @@ document.querySelector('.commentForm').addEventListener('submit', newCommentHand
 
 
 //function to set cur time\
-var saved = document.getElementById("")
+
 var aud = document.getElementById("audioPlayer");
-function setCurTime() { 
-  aud.currentTime = saved;
-} 	
+function setCurTime(event) { 
+  aud.currentTime = event;
+};
 
 
 

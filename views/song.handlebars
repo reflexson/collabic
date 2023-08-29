@@ -6,8 +6,8 @@
   <h1 class="text-center">{{song.song_name}}</h1>
 
   <!-- Audio Player  -->
-  <div class="mt-3" id="audioPlayer">
-    <audio controls class="col-12" src={{song.song_url}}></audio>
+  <div class="mt-3">
+    <audio controls class="col-12"  id="audioPlayer"src={{song.song_url}}></audio>
   </div>
   
   <!-- Comment Form -->
@@ -62,8 +62,8 @@
                   </div>
                   <div class="card-body">
                   <p>{{comment.comment_description}}</p>
-                        <div class="col-auto my-1 text-center">
-                             <button id="5"onclick="setCurTime" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
+                        <div class="col-auto my-1 text-center" id="saved">
+                             <button onclick="setCurTime({{comment.comment_songTimestamp}})" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
                         </div>
                 </div>
                 <div class="card-action">
