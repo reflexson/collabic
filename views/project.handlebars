@@ -1,6 +1,7 @@
 
 
          <h1 class="text-center">{{project.project_name}} Songs</h1>
+         
         <form class="newSongForm" data-projectid={{project.id}}>
           <div class=" text-center form-row align-items-center">
             <div class="col-auto">
@@ -43,7 +44,7 @@
        
   {{#if songs.length}}
          {{#each songs as |song|}}
-        <li class="nav-item ">
+        <div class="nav-item ">
           <div class="row ">
             <div class="col s12 m6">
               <div class="card blue-grey darken-1 text-center mt-3">
@@ -58,7 +59,7 @@
               </div>
             </div>
           </div>     
-        </li>
+        </div>
            {{/each}}
              {{/if}}
 <script src="/js/project.js"></script>

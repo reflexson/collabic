@@ -1,29 +1,79 @@
 {{!-- {{#set 'title'}}Song Page{{/set}} --}}
 
-
-  <a href="/project/{{song.project_id}}" class="btn btn-secondary">Back to Project</a>
+<div class="text-center mt-2">
+  <a type="button" href="/project/{{song.project_id}}" class="btn btn-secondary">Back to Project</a>
+  </div>
   <h1 class="text-center">{{song.song_name}}</h1>
 
   <!-- Audio Player  -->
-  <div id="audio-player" data-songId={{song.id}}>
+  <div class="audioPlayer mt-3">
     <audio controls class="col-12" src={{song.song_url}}></audio>
   </div>
   
   <!-- Comment Form -->
-  <form class="commentForm">
-    <textarea id="commentText" rows="3" placeholder="Write a comment"></textarea>
-    <button type="submit">Submit Comment</button>
-  </form>
+  <div class="d-flex justify-content-center">
+<form class="commentForm bg-secondary-subtle rounded col-10 shadow-lg mt-4 ps-4 pe-4"data-songid={{song.id}}>
+  <h3 class="text-center commentForm fs-4">New Comment</h3>
+
+  <div>
+      <div class="row mt-3 mb-3 d-flex justify-content-center">
+        <h4 class="fs-5 text-center text-secondary"></h4>
+          <div class="col-4">
+             <input type="text" class="form-control text-center " placeholder="Author">
+          </div>
+      </div>
+      <div class="row mt-3 mb-3 d-flex justify-content-center">
+        <h4 class="fs-5 text-center text-secondary">Timestamp</h4>
+          <div class="col-2">
+             <input type="text" class="form-control text-center " placeholder="Min">
+          </div>
+          <div class="col-2">
+              <input type="text" class="form-control text-center" placeholder="Sec">
+          </div>
+      </div>
+  </div>  
+  <div class="form-group">
+        <label for="comment">Comment:</label>
+        <textarea id="commentText" class="form-control" rows="2"></textarea>
+  </div>
+  <div class="col-auto my-1 text-center">
+      <button type="submit" class=" btn btn-primary mb-2">Submit</button>
+  </div>
+</form>
+</div>
+  {{!-- <form class="commentForm " data-songid={{song.id}}>
+    <div class=" d-flex justify-content-center">
+    <textarea class="row"id="commentText" rows="4" placeholder="Write a comment"></textarea>
+    <button class="row"type="submit" href="">Submit Comment</button>
+    </div>
+  </form> --}}
 
   <!-- Display comments -->
-  <h2>Comments</h2>
-  <ul class="commentsList">
-       {{#if comments.length}}
-      {{#each song.comments}}
-        <li>{{this.comment_description}}</li>
-      {{/each}}
-    {{/if}}
-  </ul>
+  <h2 class="text-center mt-4">Comments</h2>
+
+    {{#if comments.length}}
+         {{#each comments as |comment|}}
+        <div class="nav-item ">
+          <div class="row ">
+            <div class="col s12 m6">
+              <div class="card blue-grey darken-1 text-center mt-3">
+                <div class="card-header white-text fs-1 ">
+                  </div>
+                  <div class="card-body">
+                  <p>{{comment.comment_description}}</p>
+                        <div class="col-auto my-1 text-center">
+                             <button onclick="setCurTime(4)" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
+                        </div>
+                </div>
+                <div class="card-action">
+                </div>
+              </div>
+            </div>
+          </div>     
+        </div>
+           {{/each}}
+             {{/if}}
+  
 
   <script src="/js/song.js"></script>
 

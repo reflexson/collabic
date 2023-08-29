@@ -7,7 +7,7 @@ const newSongHandler = async (event) => {
 	const song_description = document.querySelector('#songDescription').value.trim();
     const projectId = document.querySelector('.newSongForm').dataset.projectid;
     const raw_url = document.querySelector('#rawUrl').value.trim();
-	const linkUrl = raw_url.slice(0,-4) + "raw=1";
+	// const linkUrl = raw_url.slice(0,-4) + "raw=1";
 	
  
 
