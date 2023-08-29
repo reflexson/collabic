@@ -1,22 +1,44 @@
 const router = require('express').Router();
-const { User, Blog, Comment } = require('../models');
+const { User, Song, Comment, Project } = require('../models');
 const withAuth = require('../utils/auth');
 
+
+//default page
 router.get('/', async (req, res) => {
+  // try {
+  //   const songData = await Song.findAll({
+  //     include: [
+  //       {
+  //         model: User,
+  //         attributes: ['username'],
+  //       },
+  //     ],
+  //   });
+
+    // const songs = songData.map((song) => song.get({ plain: true }));
+
+    res.render('homepage', {
+      // songs,
+      logged_in: req.session.logged_in,
+    });
+  // } catch (err) {
+  //   res.status(500).json(err);
+  // }
+});
+
+//allprojects page
+
+router.get('/allprojects', withAuth, async (req, res) => {
 	try {
-		const blogData = await Blog.findAll({
-			include: [{
-				model: User,
-				attributes: ['username'],
-			},],
+		const projectData = await Project.findAll({
 		});
 
-		const blogs = blogData.map((blog) => blog.get({
+		const projects = projectData.map((project) => project.get({
 			plain: true
 		}));
 
-		res.render('homepage', {
-			blogs,
+		res.render('allprojects', {
+			projects,
 			logged_in: req.session.logged_in
 		});
 	} catch (err) {
@@ -24,28 +46,30 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/blog/:id', async (req, res) => {
+
+//single project page
+
+router.get('/project/:id', async (req, res) => {
 	try {
-		const blogData = await Blog.findByPk(req.params.id, {
+		const projectData = await Project.findByPk(req.params.id, {
 			include: [
-				{
-					model: User,
-					attributes: ['username'],
-				}, {
-					model: Comment,
-					include: [
-						User
-					]
-				}
 			],
 		});
 
-		const blog = blogData.get({
+		const project = projectData.get({
 			plain: true
 		});
+		const songData = await Song.findAll({
+			where: { project_id: req.params.id } 
+		});
 
-		res.render('blog', {
-			...blog,
+		const songs = songData.map((song) => song.get({
+			plain: true
+		}));
+
+		res.render('project', {
+			project,
+			songs,
 			logged_in: req.session.logged_in
 		});
 	} catch (err) {
@@ -53,45 +77,26 @@ router.get('/blog/:id', async (req, res) => {
 	}
 });
 
-router.get('/dashboard', withAuth, async (req, res) => {
-	try {
-		const userData = await User.findByPk(req.session.user_id, {
-			attributes: {
-				exclude: ['password']
-			},
-			include: [{
-				model: Blog
-			}],
-		});
 
-		const user = userData.get({
-			plain: true
-		});
-
-		res.render('dashboard', {
-			...user,
-			logged_in: true
-		});
-	} catch (err) {
-		res.status(500).json(err);
-	}
-});
+//login page
 
 router.get('/login', (req, res) => {
-	if (req.session.logged_in) {
-		res.redirect('/dashboard');
-		return;
-	}
+  if (req.session.logged_in) {
+    res.redirect('/allprojects');
+    return;
+  }
 
-	res.render('login');
+  res.render('login');
 });
 
+//signUp page
+
 router.get('/signUp', (req, res) => {
-	if (req.session.logged_in) {
-		res.redirect('/dashboard');
-		return;
-	}
-	res.render('signUp');
+  if (req.session.logged_in) {
+    res.redirect('/allprojects');
+    return;
+  }
+  res.render('signUp');
 });
 
 module.exports = router;
