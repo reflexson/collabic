@@ -9,12 +9,7 @@ const newSongHandler = async (event) => {
     const raw_url = document.querySelector('#rawUrl').value.trim();
 	const linkUrl = raw_url.slice(0,-4) + "raw=1";
 	
-        // }else if(gdRadio.checked == true){
-			// let gdArray= raw_url.split("/");
-	// 	// 	let linkUrl = `https://docs.google.com/uc?export=open&id=${gdArray[5]}`;
-	// 	};
-
-
+ 
 
  // determine the link type based on the radio button selection
  const link_type = gdRadio.checked ? 'gd' : 'db';
@@ -22,7 +17,7 @@ const newSongHandler = async (event) => {
  let processedUrl = raw_url;
  if (link_type === 'db') {
    // process the dropbox URL (if needed)
-   processedUrl = raw_url.split('?')[0];
+   processedUrl = raw_url.slice(0,-4) + "raw=1";
  } else if (link_type === 'gd') {
    const gdArray = raw_url.split('/');
    processedUrl = `https://docs.google.com/uc?export=open&id=${gdArray[5]}`;

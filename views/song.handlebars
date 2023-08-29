@@ -1,0 +1,29 @@
+{{!-- {{#set 'title'}}Song Page{{/set}} --}}
+
+
+  <a href="/project/{{song.project_id}}" class="btn btn-secondary">Back to Project</a>
+  <h1 class="text-center">{{song.song_name}}</h1>
+
+  <!-- Audio Player  -->
+  <div id="audio-player" data-songId={{song.id}}>
+    <audio controls class="col-12" src={{song.song_url}}></audio>
+  </div>
+  
+  <!-- Comment Form -->
+  <form class="commentForm">
+    <textarea id="commentText" rows="3" placeholder="Write a comment"></textarea>
+    <button type="submit">Submit Comment</button>
+  </form>
+
+  <!-- Display comments -->
+  <h2>Comments</h2>
+  <ul class="commentsList">
+       {{#if comments.length}}
+      {{#each song.comments}}
+        <li>{{this.comment_description}}</li>
+      {{/each}}
+    {{/if}}
+  </ul>
+
+  <script src="/js/song.js"></script>
+

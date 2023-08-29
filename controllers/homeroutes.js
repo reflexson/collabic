@@ -77,6 +77,28 @@ router.get('/project/:id', async (req, res) => {
 	}
 });
 
+//song page
+
+router.get('/song/:id', async (req, res) => {
+	try {
+	  const songId = req.params.id; // extract the song ID from the URL
+	  const songData = await Song.findByPk(songId);
+  
+	  if (!songData) {
+		return res.status(404).json({ error: 'Song not found' });
+	  }
+  
+	  const song = songData.get({ plain: true });
+  
+	  res.render('song', { // Render the 'song' template
+		song,
+		logged_in: req.session.logged_in
+	  });
+	} catch (err) {
+	  res.status(500).json(err);
+	}
+  });
+
 
 //login page
 
