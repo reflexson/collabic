@@ -39,7 +39,7 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 document.querySelector('.commentForm').addEventListener('submit', newCommentHandler);
 
 
-//function to set cur time\
+//function to set curent time\
 
 var aud = document.getElementById("audioPlayer");
 function setCurTime(event) { 
