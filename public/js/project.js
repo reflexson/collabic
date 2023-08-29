@@ -15,29 +15,76 @@ const newSongHandler = async (event) => {
 	// 	};
 
 
-	if (song_name && song_description) {
-		
-		const response = await fetch('/api/songs', {
-			method: 'POST',
-			body: JSON.stringify({
-				song_name, 
-				song_url:linkUrl,
-				song_description,
-				project_id: projectId,
-				// song_url: raw_url
-            }),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		});
 
-		if (response.ok) {
-			document.location.replace(`/project/${projectId}`);
-		} else {
-			alert('Please fill out all fields');
-		}
-	}
+ // determine the link type based on the radio button selection
+ const link_type = gdRadio.checked ? 'gd' : 'db';
+ // logic to HOPEFULLY determine the type of link
+ let processedUrl = raw_url;
+ if (link_type === 'db') {
+   // process the dropbox URL (if needed)
+   processedUrl = raw_url.split('?')[0];
+ } else if (link_type === 'gd') {
+   const gdArray = raw_url.split('/');
+   processedUrl = `https://docs.google.com/uc?export=open&id=${gdArray[5]}`;
+ }
+
+ if (song_name && song_description) {
+   try {
+	 const response = await fetch('/api/songs', {
+	   method: 'POST',
+	   body: JSON.stringify({
+		 song_name,
+		 song_description,
+		 project_id: projectId,
+		 song_url: processedUrl,
+		 link_type, 
+	   }),
+	   headers: {
+		 'Content-Type': 'application/json',
+	   },
+	 });
+
+	 if (response.ok) {
+	   document.location.replace(`/project/${projectId}`);
+	 } else {
+	   alert('Please fill out all fields');
+	 }
+   } catch (error) {
+	 console.error(error);
+	 // error stuff
+   }
+ }
 };
+
+document.querySelector('.newSongForm').addEventListener('submit', newSongHandler);
+
+
+	
+// 	if (song_name && song_description) {
+		
+// 		const response = await fetch('/api/songs', {
+// 			method: 'POST',
+// 			body: JSON.stringify({
+// 				song_name, 
+// 				song_url:linkUrl,
+// 				song_description,
+// 				project_id: projectId,
+// 				// song_url: raw_url
+//             }),
+// 			headers: {
+// 				'Content-Type': 'application/json',
+// 			},
+// 		});
+
+// 		if (response.ok) {
+// 			document.location.replace(`/project/${projectId}`);
+// 		} else {
+// 			alert('Please fill out all fields');
+// 		}
+// 	}
+// };
+
+
 
 // const delButtonHandler = async (event) => {
 // 	if (event.target.hasAttribute('data-id')) {
