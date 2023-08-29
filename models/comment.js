@@ -17,7 +17,9 @@ Comment.init(
       type: DataTypes.INTEGER,
     },
     comment_publishedTimestamp: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     comment_owner: {
       type: DataTypes.STRING,

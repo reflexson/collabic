@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Comment, Song } = require('../../models'); 
+const {Song } = require('../../models'); 
 const withAuth = require('../../utils/auth');
 
 //get all songs

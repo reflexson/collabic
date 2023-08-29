@@ -1,17 +1,23 @@
 const newCommentHandler = async (event) => {
 	event.preventDefault();
 
-	const comment_description = document.querySelector('#commentText').value.trim();
-  const songId = document.querySelector('.commentForm').dataset.songid;
+const comment_description = document.querySelector('#commentText').value.trim();
+const songId = document.querySelector('.commentForm').dataset.songid;
+const cueMin = document.querySelector('#cueMin').value.trim();
+const cueSec = document.querySelector('#cueSec').value.trim();
+const comment_owner = document.querySelector('#author').value.trim();
+const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
+
 
  if (comment_description) {
    try {
 	 const response = await fetch('/api/comments', {
 	   method: 'POST',
 	   body: JSON.stringify({
-		 comment_description,
-    //  comment_songTimestamp,
-		 song_id: songId,
+		comment_description,
+     	comment_songTimestamp,
+		comment_owner,
+		song_id: songId,
 	   }),
 	   headers: {
 		 'Content-Type': 'application/json',
@@ -33,9 +39,10 @@ const newCommentHandler = async (event) => {
 document.querySelector('.commentForm').addEventListener('submit', newCommentHandler);
 
 
-//function to set cur time
-var aud = document.getElementById("audioPlayer")
-function setCurTime(saved) { 
+//function to set cur time\
+var saved = document.getElementById("")
+var aud = document.getElementById("audioPlayer");
+function setCurTime() { 
   aud.currentTime = saved;
 } 	
 
