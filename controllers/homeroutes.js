@@ -77,6 +77,37 @@ router.get('/project/:id', async (req, res) => {
 	}
 });
 
+//song page
+
+router.get('/song/:id', async (req, res) => {
+	try {
+	  const songData = await Song.findByPk(req.params.id);
+  
+	  if (!songData) {
+		return res.status(404).json({ error: 'Song not found' });
+	  }
+  
+	  const song = songData.get({ plain: true });
+	  
+	  const commentData = await Comment.findAll({
+		where: { song_id: req.params.id } 
+	});
+
+	const comments = commentData.map((comment) => comment.get({
+		plain: true
+	}));
+	  
+  
+	  res.render('song', { // Render the 'song' template
+		song,
+		comments,
+		logged_in: req.session.logged_in
+	  });
+	} catch (err) {
+	  res.status(500).json(err);
+	}
+  });
+
 
 //login page
 
