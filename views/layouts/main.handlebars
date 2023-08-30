@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Collabic</title>
+    <link href="/public/css/input.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   </head>
   <body class="bg-secondary-subtle text-emphasis-success">
@@ -19,14 +20,14 @@
           {{#if logged_in}}
           <ul class="navbar-nav me-4 fs-2">
 
-          <li class="nav-item">
+          <div class="nav-item">
             <a class="nav-link active text-white" aria-current="page" href="/allprojects">Projects</a>
-          </li>	
-          <li class="nav-item">
+          </div>	
+          <div="nav-item">
             <a class="nav-link text-white" href="/login" id="logout">Logout</a>
-          </li>	
+          </div>	
           </ul>	
-          {{/if}}	  
+          {{/if}}
         </div>
         </div>
       </nav>
