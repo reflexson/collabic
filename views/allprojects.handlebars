@@ -2,8 +2,28 @@
 
         
         
-
-         
+  <div class="d-flex justify-content-center">
+   <form class="newProjectForm new_project_form mt-3 col-8">
+          <div class=" text-left form-row align-items-center">
+            <div class="col-auto">
+              <h1 class="new_project_name sr-only" >New Project Name:</h1>
+              <input type="text" class="form-control mb-2" id="projectName" placeholder="">
+            </div>
+            <div class="col-auto">
+              <label class="sr-only" >Project Description:</label>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" id="projectDescription" placeholder="">
+              </div>
+            </div>
+          </div>
+            <div class="col-auto my-1 text-center">
+              <button type="submit" for="newProjectForm" class=" mb-2 new_project_button">
+                Create New Project
+              </button>
+            </div>
+          </div>
+        </form>  
+        </div>     
         <h1 class="text-center text-decoration-underline">All Projects</h1>
   {{#if projects.length}}
          {{#each projects as |project|}}
@@ -26,24 +46,5 @@
            {{/each}}
              {{/if}}
 
-              <form class="newProjectForm new_project_form">
-          <div class=" text-left form-row align-items-center">
-            <div class="col-auto">
-              <h1 class="new_project_name sr-only" >New Project Name:</h1>
-              <input type="text" class="form-control mb-2" id="projectName" placeholder="">
-            </div>
-            <div class="col-auto">
-              <label class="sr-only" >Project Description:</label>
-            <div class="input-group mb-2">
-                <input type="text" class="form-control" id="projectDescription" placeholder="">
-              </div>
-            </div>
-          </div>
-            <div class="col-auto my-1 text-center">
-              <button type="submit" for="newProjectForm" class=" mb-2 new_project_button">
-                Create New Project
-              </button>
-            </div>
-          </div>
-        </form>
+             
 <script src="/js/allprojects.js"></script>

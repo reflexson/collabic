@@ -2,8 +2,14 @@
 :root {
     --project-name-color: #5585b5;
     --song-name-color: #455d7a;
-    --button-color: #132743;
+    --button-color: #f95959;
+    --backgrond-color: #97cba9;
 }
+/* main section styling */
+.navbar{ 
+    background-color: var(--backgrond-color);
+}
+
 /* allprojects page styling */
 .new_project_form {
     border: 10px inset var(--project-name-color);

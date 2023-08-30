@@ -2,47 +2,8 @@
 
          <h1 class="text-center display-3 mt-3 project_page_title text-decoration-underline">{{project.project_name}} 
          </h1>
-         
-
-            {{!-- <div class="form-check">
-              <h2>URL type</h2>
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="gdRadio">
-  <label class="form-check-label" for="flexRadioDefault1">
-   Google Drive
-  </label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="flexRadioDefault" id="dbRadio" checked>
-  <label class="form-check-label" for="flexRadioDefault2">
-    Dropbox
-  </label>
-</div> --}}
-            
-
-       
-  {{#if songs.length}}
-         {{#each songs as |song|}}
-        <li class="nav-item ">
-          <div class="row ">
-            <div class="col s12 m6">
-              <div class="card text-center mt-3 ">
-                <div class="card-header fs-1">
-                  <a class="song_card" href="/song/{{song.id}}">{{song.song_name}}</a>
-                </div>
-                <div class="card-body">
-                  <p>{{song.song_description}}</p>
-                </div>
-              <div class="card-action">
-              </div>
-              </div>
-            </div>
-          </div>     
-        </li>
-           {{/each}}
-             {{/if}}
-
-             
-        <form class="newSongForm new_song_form" data-projectid={{project.id}}>
+         <div class="d-flex justify-content-center">
+         <form class="newSongForm new_song_form col-5" data-projectid={{project.id}}>
           <div class=" text-left form-row align-items-center">
             <div class="col-auto">
               <h2 class="sr-only song_input_name" >Song Name:</h2>
@@ -69,4 +30,43 @@
             </div>
           </div>
         </form>
+        </div>
+
+            {{!-- <div class="form-check">
+              <h2>URL type</h2>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="gdRadio">
+  <label class="form-check-label" for="flexRadioDefault1">
+   Google Drive
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="dbRadio" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Dropbox
+  </label>
+</div> --}}
+            
+
+       
+  {{#if songs.length}}
+         {{#each songs as |song|}}
+        <div class="nav-item ">
+          <div class="row ">
+            <div class="col s12 m6">
+              <div class="card text-center mt-3 ">
+                <div class="card-header fs-1">
+                  <a class="song_card" href="/song/{{song.id}}">{{song.song_name}}</a>
+                </div>
+                <div class="card-body">
+                  <p>{{song.song_description}}</p>
+                </div>
+              <div class="card-action">
+              </div>
+              </div>
+            </div>
+          </div>     
+        </div>
+           {{/each}}
+             {{/if}}
+
 <script src="/js/project.js"></script>
