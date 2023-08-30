@@ -1,58 +1,74 @@
+const newCommentHandler = async (event) => {
+	event.preventDefault();
 
-// fetch and display comments for a song
-async function getComments(songId) {
-    const response = await fetch(`/api/songs/${songId}/comments`);
-    if (response.ok) {
-      const comments = await response.json();
-      const commentsList = document.querySelector('.commentsList'); 
-      commentsList.innerHTML = ''; // clear existing comments
-      comments.forEach(comment => {
-        const commentItem = document.createElement('li');
-        commentItem.textContent = comment.comment_description;
-        commentsList.appendChild(commentItem);
-      });
-    } else {
-      console.error('Failed to fetch comments');
-    }
-  }
-  // comment submission function 
-  async function submitComment(songId, commentText) {
-    const response = await fetch(`/api/songs/${songId}/comments`, {
-      method: 'POST',
-      body: JSON.stringify({
-        text: commentText,
-      }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-  
-    if (response.ok) {
-      // refresh comments after submit
-      getComments(songId);
-    } else {
-      console.error('Failed to submit comment');
-    }
-  }
-  
-  document.addEventListener('DOMContentLoaded', () => {
+const comment_description = document.querySelector('#commentText').value.trim();
+const songId = document.querySelector('.commentForm').dataset.songid;
+const cueMin = document.querySelector('#cueMin').value.trim();
+const cueSec = document.querySelector('#cueSec').value.trim();
+const comment_owner = document.querySelector('#author').value.trim();
+const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 
-    const songId = document.querySelector('#audio-player').dataset.songId;
-    const commentForm = document.querySelector('.commentForm');
-    const commentText = document.querySelector('#commentText');
-  
-    // display comments when the page loads initially
-    getComments(songId);
-  
-    // submit comment 
-    commentForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const text = commentText.value;
-      if (text) {
-        await submitComment(songId, text);
-        commentText.value = ''; // Clear the comment text field
-      }
-    });
-  
-  });
-  
+
+ if (comment_description) {
+   try {
+	 const response = await fetch('/api/comments', {
+	   method: 'POST',
+	   body: JSON.stringify({
+		comment_description,
+     	comment_songTimestamp,
+		comment_owner,
+		song_id: songId,
+	   }),
+	   headers: {
+		 'Content-Type': 'application/json',
+	   },
+	 });
+
+	 if (response.ok) {
+	   document.location.replace(`/song/${songId}`);
+	 } else {
+	   alert('Comment Cannot Be Blank');
+	 }
+   } catch (error) {
+	 console.error(error);
+	 // error stuff
+   }
+ }
+};
+
+document.querySelector('.commentForm').addEventListener('submit', newCommentHandler);
+
+
+//function to set curent time\
+
+var aud = document.getElementById("audioPlayer");
+function setCurTime(event) { 
+  aud.currentTime = event;
+};
+
+
+
+
+// const delButtonHandler = async (event) => {
+// 	if (event.target.hasAttribute('data-id')) {
+// 		const id = event.target.getAttribute('data-id');
+
+// 		const response = await fetch(`/api/blogs/${id}`, {
+// 			method: 'DELETE',
+// 		});
+
+// 		if (response.ok) {
+// 			document.location.replace('/dashboard');
+// 		} else {
+// 			alert('Failed to delete blog');
+// 		}
+// 	}
+// };
+
+// document
+// 	.querySelector('.newSongForm')
+// 	.addEventListener('submit', newSongHandler);
+
+// document
+// 	.querySelector('.projectList')
+// 	.addEventListener('click', delButtonHandler);
