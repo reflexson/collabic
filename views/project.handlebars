@@ -1,26 +1,9 @@
 
 
-         <h1 class="text-center display-3 mt-3">{{project.project_name}} Songs</h1>
+         <h1 class="text-center display-3 mt-3 project_page_title text-decoration-underline">{{project.project_name}} 
+         </h1>
          
-        <form class="newSongForm" data-projectid={{project.id}}>
-          <div class=" text-center form-row align-items-center">
-            <div class="col-auto">
-              <label class="sr-only" >Song Name</label>
-              <input type="text" class="form-control mb-2" id="songName" placeholder="">
-            </div>
-            <div class="col-auto">
 
-              <label class="sr-only" >Song Description</label>
-              <div class="input-group mb-2">
-                <input type="text" class="form-control" id="songDescription" placeholder="">
-              </div>
-            </div>
-              <div class="col-auto">
-              <label class="sr-only" >Song URL</label>
-              <div class="input-group mb-2">
-                <input type="text" class="form-control" id="rawUrl" placeholder="">
-              </div>
-            </div>
             {{!-- <div class="form-check">
               <h2>URL type</h2>
   <input class="form-check-input" type="radio" name="flexRadioDefault" id="gdRadio">
@@ -34,12 +17,7 @@
     Dropbox
   </label>
 </div> --}}
-            </div>
-            <div class="col-auto my-1 text-center">
-              <button type="submit" for="newProjectForm" class="mb-2 ">Create New Song</button>
-            </div>
-          </div>
-        </form>
+            
 
        
   {{#if songs.length}}
@@ -48,8 +26,8 @@
           <div class="row ">
             <div class="col s12 m6">
               <div class="card text-center mt-3 ">
-                <div class="card-header fs-1 ">
-                  <a class="link-underline link-opacity-0 @black " href="/song/{{song.id}}">{{song.song_name}}</a>
+                <div class="card-header fs-1">
+                  <a class="song_card" href="/song/{{song.id}}">{{song.song_name}}</a>
                 </div>
                 <div class="card-body">
                   <p>{{song.song_description}}</p>
@@ -62,4 +40,33 @@
         </li>
            {{/each}}
              {{/if}}
+
+             
+        <form class="newSongForm new_song_form" data-projectid={{project.id}}>
+          <div class=" text-left form-row align-items-center">
+            <div class="col-auto">
+              <h2 class="sr-only song_input_name" >Song Name:</h2>
+              <input type="text" class="form-control mb-2" id="songName" placeholder="">
+            </div>
+            <div class="col-auto">
+
+              <h4 class="sr-only" >Song Description:</h4>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="songDescription" placeholder="">
+              </div>
+            </div>
+              <div class="col-auto">
+              <h4 class="sr-only" >Song URL:</h4>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="rawUrl" placeholder="">
+              </div>
+            </div>
+            </div>
+            <div class="col-auto my-1 text-center">
+              <button type="submit" for="newProjectForm" class="mb-2 new_song_button">
+                Create New Song
+              </button>
+            </div>
+          </div>
+        </form>
 <script src="/js/project.js"></script>

@@ -1,4 +1,4 @@
-# Collabic
+# Collabic 
 The ultimate song collaboration workspace. 
 
 Finally a place to share yor thoughts on audio files for your next project.
@@ -7,7 +7,7 @@ Include as many songs in a project as you want.
 
 Create multiple projects with the same login information to allow your team access to all the projects being worked on.
 
-                                                                            
+img=
 
 
 ## Table of Contents

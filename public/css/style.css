@@ -1,9 +1,62 @@
+/* collabic theme colors from shecodes.io/palletes */
+:root {
+    --project-name-color: #5585b5;
+    --song-name-color: #455d7a;
+    --button-color: #132743;
+}
 /* allprojects page styling */
+.new_project_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
+.new_project_name{
+    color:var(--project-name-color);
+}
+
+.new_project_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
 .project_card_content{
-    color:red;
+    color:var(--project-name-color);
     text-decoration: none;
 }
 
-.new_project_name{
-    color:yellow;
+/* project page styling */
+.project_page_title {
+    color:var(--project-name-color);
+}
+
+.song_input_name {
+    color:var(--song-name-color);
+}
+
+.new_song_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
+.new_song_button {
+    background-color: var(--button-color);
+    color:white
+}
+
+.song_card{
+    color:var(--song-name-color);
+    text-decoration: none;
+}
+
+/* song page styling */
+.submit_comment_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
+.cue_comment_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
+.song_page_title {
+    color: var(--song-name-color);
 }
