@@ -1,1 +1,9 @@
+/* allprojects page styling */
+.project_card_content{
+    color:red;
+    text-decoration: none;
+}
 
+.new_project_name{
+    color:yellow;
+}

@@ -1,5 +1,13 @@
-# mvc-tech-blog
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)                                                                             
+# Collabic
+The ultimate song collaboration workspace. 
+
+Finally a place to share yor thoughts on audio files for your next project.
+
+Include as many songs in a project as you want.
+
+Create multiple projects with the same login information to allow your team access to all the projects being worked on.
+
+                                                                            
 
 
 ## Table of Contents
@@ -53,4 +61,14 @@ NA
 ## Questions
 Visit my github page https://www.github.com/reflexson to check out my other projects!
 
-Email me with any questions via thepaulcox@gmail.com
+Email us with any questions via:
+
+thepaulcox@gmail.com
+
+tobywarburton10@gmail.com
+
+Zach email
+
+Corrine email
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
