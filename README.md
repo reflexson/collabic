@@ -1,5 +1,8 @@
-# Collabic 
-The ultimate song collaboration workspace. 
+# Collabic  
+
+
+
+Welcome to the ultimate song collaboration workspace!
 
 Finally a place to share yor thoughts on audio files for your next project.
 
@@ -7,7 +10,7 @@ Include as many songs in a project as you want.
 
 Create multiple projects with the same login information to allow your team access to all the projects being worked on.
 
-img=
+
 
 
 ## Table of Contents
@@ -21,31 +24,44 @@ img=
 
 * [Contributing](#contributing)
 
-
-
 * [Questions](#questions)
 
 
 ## Description
-This application is a ech blog that allows users to login, make new posts, comment on post, and delete posts.
+Create projects that anyone with the username and password can access.
+
+Upload songs through dropbox or GoogleDrive and have them accessible on our site.
+
+Leave timestamped comments that other collaborators can use to jump to that portion of the song.
 
 
 
 ## Installation
+Make sure your env file is set up with your database name, Sql username and password.
 
 To istall the necessary dependencies for this project, please run the folowing command:
 ```
-npm i
+npm install
+```
+
+Then create yor database using the mySql interface of CLI
+```
+mysql -u "your username" -p
+```
+
+After entering your mySql password, run the following command:
+```
+source schema.sql;
 ```
 
 
 
 ## Usage
 
-start the application with npm start
+Start the application with npm start
 
 url for this repo is
-https://github.com/reflexson/mvc-tech-blog
+
 
 
 ## License
@@ -53,9 +69,16 @@ https://github.com/reflexson/mvc-tech-blog
 This project is licensed under the MIT license.
  https://opensource.org/licenses/MIT
 
+ ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
+
 ## Contributing
 
-NA
+Thank you:
+
+shecodes.io
+
+Bootstrap
+
 
 
 ## Questions
@@ -63,12 +86,13 @@ Visit my github page https://www.github.com/reflexson to check out my other proj
 
 Email us with any questions via:
 
-thepaulcox@gmail.com
+Paul: thepaulcox@gmail.com
 
-tobywarburton10@gmail.com
+Toby: tobywarburton10@gmail.com
 
-Zach email
+Zach: zwlyons@gmail.com
 
-Corrine email
+Corinne: supragirl100@gmail.com
 
-![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 
+
+![alt text](/imgs/Vinyl_Icon.png)

@@ -3,18 +3,25 @@
     --project-name-color: #5585b5;
     --song-name-color: #455d7a;
     --button-color: #f95959;
-    --backgrond-color: #97cba9;
+    --backgrond-color: #385170;
+    --card-background: #feffdf;
 }
 /* main section styling */
-.navbar{ 
+.top_background { 
     background-color: var(--backgrond-color);
 }
 
+/* login page styling */
+.login_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
 /* allprojects page styling */
 .new_project_form {
     border: 10px inset var(--project-name-color);
     border-radius: 20px;
 }
+
 .new_project_name{
     color:var(--project-name-color);
 }
@@ -50,7 +57,7 @@
 .song_card{
     color:var(--song-name-color);
     text-decoration: none;
-}
+}  
 
 /* song page styling */
 .submit_comment_button {
@@ -65,4 +72,9 @@
 
 .song_page_title {
     color: var(--song-name-color);
+}
+
+.project_return_button {
+    background-color: var(--button-color);
+    color:white;
 }

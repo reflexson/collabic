@@ -2,8 +2,8 @@
 
          <h1 class="text-center display-3 mt-3 project_page_title text-decoration-underline">{{project.project_name}} 
          </h1>
-         <div class="d-flex justify-content-center">
-         <form class="newSongForm new_song_form col-5" data-projectid={{project.id}}>
+         <div class="d-flex justify-content-center ">
+         <form class="newSongForm new_song_form col-5 shadow-lg p-3" data-projectid={{project.id}}>
           <div class=" text-left form-row align-items-center">
             <div class="col-auto">
               <h2 class="sr-only song_input_name" >Song Name:</h2>
@@ -52,10 +52,10 @@
          {{#each songs as |song|}}
         <div class="nav-item ">
           <div class="row ">
-            <div class="col s12 m6">
-              <div class="card text-center mt-3 ">
-                <div class="card-header fs-1">
-                  <a class="song_card" href="/song/{{song.id}}">{{song.song_name}}</a>
+            <div class="col s12 m6 ">
+              <div class="card text-center mt-3">
+                <div class=" card-header fs-1 ">
+                  <a class="song_card " href="/song/{{song.id}}">{{song.song_name}}</a>
                 </div>
                 <div class="card-body">
                   <p>{{song.song_description}}</p>
