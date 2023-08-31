@@ -33,7 +33,9 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 		// }
 	//    document.location.replace(`/song/${songId}`);
 	const node = document.getElementById('node-id');
-	node.innerHTML=` <li class="nav-item ">
+	const newList = document.createElement("ul");
+	newList.classList.add("list-unstyled");
+	newList.innerHTML=` <li class="nav-item ">
 <div class="row ">
   <div class="col s12 m6">
 	<div class="card blue-grey darken-1 text-center mt-3 shadow-lg">
@@ -52,6 +54,9 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
   </div>
 </div>     
 </li>`;
+node.appendChild(newList);
+
+
 const d = new Date();
 let text = d.toLocaleDateString();
 document.getElementById("todaysDate").innerHTML = text;
