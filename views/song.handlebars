@@ -1,9 +1,9 @@
 {{!-- {{#set 'title'}}Song Page{{/set}} --}}
 
 <div class="col-auto my-1 text-center">
-  <a type="button" href="/project/{{song.project_id}}" 
+  <button onclick="window.location.href='/project/{{song.project_id}}'"
      class="project_return_button shadow-lg mb-2 p-1">Back to Project
-  </a>
+  </button>
 </div>
   <h1 class="text-center mt-3 display-3 song_page_title text-decoration-underline">{{song.song_name}}
   </h1>
