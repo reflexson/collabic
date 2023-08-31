@@ -18,7 +18,7 @@ const newSongHandler = async (event) => {
 	if (raw_url.includes('dropbox.com')) {
 		link_type = 'db';
 		// Replace ?dl=0 with ?dl=1 for direct download link
-		processedUrl = raw_url.replace('?dl=0', '?dl=1');
+		processedUrl = raw_url.slice(0,-4) + "raw=1";
 	} else if (raw_url.includes('google.com') && raw_url.includes('/file/d/')) {
 		link_type = 'gd';
 		const gdArray = raw_url.split('/');
