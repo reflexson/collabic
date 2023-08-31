@@ -31,6 +31,9 @@
               <input id="cueSec"type="text" class="form-control text-center" placeholder="Sec">
           </div>
       </div>
+      <div class="d-flex justify-content-center">
+      <button onclick="placeCurrentTime()" class=" btn btn-secondary mb-2 col-4">Use Current Time</button>
+      </div>
   </div>  
   <div class="form-group">
         <label for="comment">Comment:</label>
@@ -62,6 +65,7 @@
                   </div>
                   <div class="card-body">
                   <p>{{comment.comment_description}}</p>
+                  <div class="" id="">{{format_timestamp comment.comment_songTimestamp}}</div>
                         <div class="col-auto my-1 text-center" id="saved">
                              <button onclick="setCurTime({{comment.comment_songTimestamp}})" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
                         </div>

@@ -44,6 +44,7 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 		</div>
 		<div class="card-body">
 		<p>${comment_description}</p>
+		<div class="cueTime" id=""><span id="cueStamp"></span></div>
 			  <div class="col-auto my-1 text-center" id="saved">
 				   <button onclick="setCurTime(${comment_songTimestamp})" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
 			  </div>
@@ -56,13 +57,24 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 </li>`;
 node.appendChild(newList);
 
+//set current date on comment
 
 const d = new Date();
 let text = d.toLocaleDateString();
 document.getElementById("todaysDate").innerHTML = text;
+
+//clear input fields other than author
+
 document.getElementById("cueMin").value ="";
 document.getElementById("cueSec").value ="";
 document.getElementById("commentText").value ="";
+
+// display comment cue time text
+
+commentCue = comment_songTimestamp;
+commentCueMin = Math.floor(commentCue / 60);
+commentCueSec = commentCue % 60;
+document.getElementById("cueStamp").innerHTML = `${commentCueMin} min ${commentCueSec} sec`;
 
 	
 	 } else {
@@ -84,6 +96,19 @@ var aud = document.getElementById("audioPlayer");
 function setCurTime(event) { 
   aud.currentTime = event;
 };
+
+//function to throw current time
+var curSeconds = document.querySelector('#cueSec');
+function placeCurrentTime(){
+	curSeconds.value = aud.currentTime;
+};
+
+
+
+
+
+
+
 
 // const delButtonHandler = async (event) => {
 // 	if (event.target.hasAttribute('data-id')) {
