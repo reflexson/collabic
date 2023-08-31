@@ -31,6 +31,7 @@ router.get('/', async (req, res) => {
 router.get('/allprojects', withAuth, async (req, res) => {
 	try {
 		const projectData = await Project.findAll({
+			where: { user_id: req.session.user_id }
 		});
 
 		const projects = projectData.map((project) => project.get({

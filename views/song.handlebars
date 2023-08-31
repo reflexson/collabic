@@ -12,7 +12,7 @@
   
   <!-- Comment Form -->
   <div class="d-flex justify-content-center">
-<form class="commentForm bg-secondary-subtle rounded col-10 shadow-lg mt-4 pt-2 ps-4 pe-4"data-songid={{song.id}}>
+<form name="id_form"class="commentForm bg-secondary-subtle rounded col-10 shadow-lg mt-4 pt-2 ps-4 pe-4"data-songid={{song.id}}>
   <h3 class="text-center commentForm fs-4">New Comment</h3>
 
   <div>
@@ -50,10 +50,10 @@
 
   <!-- Display comments -->
   <h2 class="text-center mt-4">Comments</h2>
-
+  <ul class="list-unstyled ">
     {{#if comments.length}}
          {{#each comments as |comment|}}
-        <div class="nav-item ">
+        <li class="nav-item ">
           <div class="row ">
             <div class="col s12 m6">
               <div class="card blue-grey darken-1 text-center mt-3 shadow-lg">
@@ -71,10 +71,12 @@
               </div>
             </div>
           </div>     
-        </div>
+        </li>
            {{/each}}
              {{/if}}
-  
+             </ul>
+             <ul id="node-id"class="list-unstyled "></ul>
+ 
 
   <script src="/js/song.js"></script>
 
