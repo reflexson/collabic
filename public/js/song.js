@@ -7,7 +7,7 @@ const cueMin = document.querySelector('#cueMin').value.trim();
 const cueSec = document.querySelector('#cueSec').value.trim();
 const comment_owner = document.querySelector('#author').value.trim();
 const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
-
+// var playback = 10;
 
  if (comment_description) {
    try {
@@ -25,7 +25,11 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 	 });
 
 	 if (response.ok) {
+		// if(aud.paused = "false"){
+		// 	 var playback = aud.currentTime;
+		// }
 	   document.location.replace(`/song/${songId}`);
+	
 	 } else {
 	   alert('Comment Cannot Be Blank');
 	 }
@@ -39,7 +43,7 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 document.querySelector('.commentForm').addEventListener('submit', newCommentHandler);
 
 
-//function to set curent time\
+//function to set current time
 
 var aud = document.getElementById("audioPlayer");
 function setCurTime(event) { 
@@ -47,6 +51,9 @@ function setCurTime(event) {
 };
 
 
+function commentFormBuilder(){
+	
+}
 
 
 // const delButtonHandler = async (event) => {
