@@ -1,21 +1,32 @@
-<div class="row">
-  <div class="col justify-content-center">
-    <h2 class="login">Login</h2>
-    <form class="form loginForm">
-      <div class="form-group">
-        <input class="form-input" type="text" placeholder="Username" id="userNameLogin" />
-      </div>
-      <div class="form-group">
-        <input class="form-input" type="password" placeholder="Password" id="passwordLogin" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary mt-3" type="submit">Login</button>
-      </div>
-      <div class="mt-2">
-        <a href="/signUp">Sign Up Instead</a>
-      </div>
-    </form>
-  </div>
-</div>
-
+        <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+              <div class="col-12 col-md-8 col-lg-6 col-xl-5  ">
+                <div class="card bg-dark text-white mb-5 rounded login_form'" >
+                  <div class="card-body text-center shadow-lg'">
+                    <form class="mb-md-5 mt-md-4 pb-5 loginForm">       
+                      <h2 class="fw-bold mb-2 text-uppercase">Login
+                      </h2>
+                      <p class="text-white-50 mb-5">Please enter your login and password!
+                      </p>       
+                      <div class="form-outline form-white mb-4">
+                        <input  id="userNameLogin" class="form-control form-control-lg" />
+                        <label class="form-label" for="typeEmailX">User Name
+                        </label>
+                      </div>      
+                      <div class="form-outline form-white mb-4">
+                        <input type="password" id="passwordLogin" class="form-control form-control-lg" />
+                        <label class="form-label" for="typePasswordX">Password</label>
+                      </div>        
+                      <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>       
+                    </form>     
+                    <div>
+                      <p class="mb-0">Don't have an account? 
+                        <a href="/signUp" class="text-white-50 fw-bold">Sign Up</a>
+                      </p>
+                    </div>    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 <script src="./js/login.js"></script>

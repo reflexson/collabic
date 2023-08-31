@@ -1,0 +1,74 @@
+
+
+         <h1 class="text-center display-3 mt-3 all_titles text-decoration-underline">{{project.project_name}} 
+         </h1>
+         <div class="d-flex justify-content-center ">
+         <form class="newSongForm new_song_form col-8 shadow-lg p-3 text-center" data-projectid={{project.id}}>
+          <div class=" text-left form-row align-items-center">
+            <div class="col-auto">
+              <h2 class="sr-only song_input_name" >Song Name:</h2>
+              <input type="text" class="form-control mb-2" id="songName" placeholder="">
+            </div>
+            <div class="col-auto">
+
+              <h4 class="sr-only" >Song Description:</h4>
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="songDescription" placeholder="">
+              </div>
+            </div>
+              <div class="col-auto">
+              <h4 class="sr-only" >Dropbox or Google Drive Link:</h4>
+              
+              <div class="input-group mb-2">
+                <input type="text" class="form-control" id="rawUrl" placeholder="">
+              </div>
+              <span class="fs-6 text center">Make sure to make link available to all in Goole Drive Link </span>
+            </div>
+            </div>
+            <div class="col-auto my-1 text-center">
+              <button type="submit" for="newProjectForm" class="mb-2 new_song_button">
+                Create New Song
+              </button>
+            </div>
+          </div>
+        </form>
+        </div>
+
+            {{!-- <div class="form-check">
+              <h2>URL type</h2>
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="gdRadio">
+  <label class="form-check-label" for="flexRadioDefault1">
+   Google Drive
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="flexRadioDefault" id="dbRadio" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    Dropbox
+  </label>
+</div> --}}
+            
+
+       
+  {{#if songs.length}}
+         {{#each songs as |song|}}
+        <div class="nav-item ">
+          <div class="row ">
+            <div class="col s12 m6 ">
+              <div class="card text-center mt-3 shadow-lg">
+                <div class="project_name_bg card-header fs-1 ">
+                  <a class=" project_card_content" href="/song/{{song.id}}">{{song.song_name}}</a>
+                </div>
+                <div class="card-body">
+                  <p>{{song.song_description}}</p>
+                </div>
+              <div class="card-action">
+              </div>
+              </div>
+            </div>
+          </div>     
+        </div>
+           {{/each}}
+             {{/if}}
+
+<script src="/js/project.js"></script>
