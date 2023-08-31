@@ -39,14 +39,14 @@ const comment_songTimestamp = Number(cueMin) * 60 + Number(cueSec);
 <div class="row ">
   <div class="col s12 m6">
 	<div class="card blue-grey darken-1 text-center mt-3 shadow-lg">
-	  <div class="card-header bg-secondary text-white fs-4 ">
+	  <div class="card-header project_name_bg text-white fs-4 ">
 		${comment_owner} on <span id="todaysDate"></span>
 		</div>
 		<div class="card-body">
 		<p>${comment_description}</p>
 		<div class="cueTime" id=""><span id="cueStamp"></span></div>
 			  <div class="col-auto my-1 text-center" id="saved">
-				   <button onclick="setCurTime(${comment_songTimestamp})" type="submit" class=" btn btn-success mb-2">Cue Comment</button>
+				   <button onclick="setCurTime(${comment_songTimestamp})" type="submit" class=" cue_comment_button mb-2 rounded">Cue Comment</button>
 			  </div>
 	  </div>
 	  <div class="card-action">
@@ -73,7 +73,7 @@ document.getElementById("commentText").value ="";
 
 commentCue = comment_songTimestamp;
 commentCueMin = Math.floor(commentCue / 60);
-commentCueSec = commentCue % 60;
+commentCueSec = Math.floor(commentCue % 60);
 document.getElementById("cueStamp").innerHTML = `${commentCueMin} min ${commentCueSec} sec`;
 
 	

@@ -1,0 +1,90 @@
+/* collabic theme colors from shecodes.io/palletes */
+:root {
+    --project-name-color: #5585b5;
+    --song-name-color: #455d7a;
+    --button-color: #f95959;
+    --backgrond-color: #385170;
+    --card-background: #feffdf;
+}
+/* all titles */
+
+.all_titles{
+    color:var(--backgrond-color);
+}
+
+/* main section styling */
+.top_background { 
+    background-color: var(--backgrond-color);
+}
+
+/* login page styling */
+.login_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
+/* allprojects page styling */
+.new_project_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
+
+.new_project_name{
+    color:var(--project-name-color);
+}
+
+.project_name_bg{
+    background-color:rgb(65, 67, 67)!important;
+}
+
+.new_project_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
+.project_card_content{
+    color:var(--project-name-color);
+    text-decoration: none;
+}
+
+/* project page styling */
+.project_page_title {
+    color:var(--project-name-color);
+}
+
+.song_input_name {
+    color:var(--song-name-color);
+}
+
+.new_song_form {
+    border: 10px inset var(--project-name-color);
+    border-radius: 20px;
+}
+.new_song_button {
+    background-color: var(--button-color);
+    color:white
+}
+
+.song_card{
+    color:var(--song-name-color);
+    text-decoration: none;
+}  
+
+/* song page styling */
+.submit_comment_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
+.cue_comment_button {
+    background-color: var(--button-color);
+    color:white;
+}
+
+.song_page_title {
+    color: var(--song-name-color);
+}
+
+.project_return_button {
+    background-color: var(--button-color);
+    color:white;
+}

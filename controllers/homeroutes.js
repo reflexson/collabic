@@ -5,28 +5,15 @@ const withAuth = require('../utils/auth');
 
 //default page
 router.get('/', async (req, res) => {
-  // try {
-  //   const songData = await Song.findAll({
-  //     include: [
-  //       {
-  //         model: User,
-  //         attributes: ['username'],
-  //       },
-  //     ],
-  //   });
+	if (req.session.logged_in) {
+		res.redirect('/allprojects');
+		return;
+	  }
+	
+	  res.render('login');
+	});
 
-    // const songs = songData.map((song) => song.get({ plain: true }));
-
-    res.render('homepage', {
-      // songs,
-      logged_in: req.session.logged_in,
-    });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
-});
-
-//allprojects page
+//All projects
 
 router.get('/allprojects', withAuth, async (req, res) => {
 	try {
